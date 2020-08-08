@@ -17,7 +17,7 @@
     <%- include('../include/sidebar') %>
 
     <div class="main_container">
-        <form method="post" action="/panel/crearusuario" class="form">
+        <form method="post" action="../panel/crearusuario" class="form">
             <h1>Registrar Administrador</h1>
             <h5 style="background-color: <%= status==="error"? "red":"yellow" %>" ><%= msg %></h5>
             <div class="grupo">
@@ -36,7 +36,7 @@
                 <input type="text" name="apellidos" id="apellidos" required><span class="barra"></span>
                 <label for="">Nombre de Usuario</label>
             </div>
-            <input type="text" name="tipodeusuario" id="tipodeusuario" value="1" required style="display: none"><span class="barra">
+            <input type="text" name="tipodeusuario" id="tipodeusuario" value="1" required style="display: none"><span class="barra"></span>
 
             <div class="register">
                 <p>

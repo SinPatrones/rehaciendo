@@ -36,6 +36,20 @@ class Usuarios{
             }
         );
     }
+
+    static obtenerUsuarios(result){
+        connection.query(
+            "SELECT usuarios.*,usuarios.usuarios FROM usuarios INNER JOIN usuarios ON usuarios.idusuario=usuarios.idusuario",
+            (err, res) => {
+                if (err){
+                    result(err, null);
+                }else{
+                    result(null, res);
+                }
+            }
+        );
+    }
+
 }
 
 

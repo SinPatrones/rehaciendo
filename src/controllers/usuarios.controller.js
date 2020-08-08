@@ -64,3 +64,14 @@ exports.ingresarAdministrador = (req, res) => {
         }
     });
 };
+
+exports.obtenerUsuarios = (req, res) => {
+    console.log("TOKEN:", req.datatoken);
+    Usuarios.obtenerUsuarios((err, result) => {
+        if (err){
+            res.render('panel/mostrarusuarios', {status: "error", msg: 'Error al obtener lista de usuarios', listaDeUsuarios: [], token: req.datatoken});
+        }else{
+            res.render('panel/mostrarusuarios', {status: "ok", msg: 'Lista de usuarios recuperada', listaDeUsuarios: result, token: req.datatoken});
+        }
+    });
+};

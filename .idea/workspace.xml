@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5a0adbdb-474f-41e4-b1d5-246535b765f8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/views/include/sidebar.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/include/sidebar.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/index.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/panel/buscarbien.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/panel/buscarbien.ejs" afterDir="false" />
-    </list>
+    <list default="true" id="5a0adbdb-474f-41e4-b1d5-246535b765f8" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,7 +15,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/src" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1fklRzjoT6ihIY0Wltjx08LJoql" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -27,14 +23,15 @@
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="javascript.nodejs.core.library.configured.version" value="14.0.0" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/sql" />
+    <property name="javascript.nodejs.core.library.configured.version" value="14.7.0" />
+    <property name="javascript.nodejs.core.library.typings.version" value="14.0.27" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -53,6 +50,7 @@
       <recent name="D:\Proyectos Locales\sistema\src\views\index" />
     </key>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -65,17 +63,24 @@
       <updated>1596769966696</updated>
       <workItem from="1596769971928" duration="9022000" />
       <workItem from="1596820279017" duration="16617000" />
+      <workItem from="1596909721884" duration="35000" />
+      <workItem from="1596909758414" duration="2320000" />
+      <workItem from="1596914953284" duration="3067000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
     <state x="704" y="314" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1596848696271">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="704" y="314" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1050@0.0.1920.1050" timestamp="1596848696271" />
+    <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1596909753521">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1596909753521" />
     <state x="443" y="0" key="SettingsEditor" timestamp="1596820315044">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>

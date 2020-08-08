@@ -12,6 +12,7 @@ router.get('/', VerificarToken,(req, res) => {
 });
 
 router.get('/mostrarinventario', VerificarToken, Bienes.obtenerBienes);
+router.get('/mostrarusuarios', VerificarToken, Usuarios.obtenerUsuarios);
 
 router.get('/registrarbien', VerificarToken, TiposDeBienes.obtenerLista);
 router.post('/registrarbien', VerificarToken, Bienes.crearBien);
