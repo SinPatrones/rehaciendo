@@ -38,8 +38,8 @@ class Usuarios{
     }
 
     static obtenerUsuarios(result){
-        connection.query(
-            "SELECT usuarios.*,usuarios.usuarios FROM usuarios INNER JOIN usuarios ON usuarios.idusuario=usuarios.idusuario",
+        conexion.query(
+            "SELECT * FROM usuarios",
             (err, res) => {
                 if (err){
                     result(err, null);
