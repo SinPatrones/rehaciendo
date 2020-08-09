@@ -75,3 +75,34 @@ exports.obtenerUsuarios = (req, res) => {
         }
     });
 };
+
+exports.editarusuario = (req, res) => {
+    let sinclave = false;
+    if (req.body.clave === ""){
+        sinclave = true;
+    }
+    let editar = new Usuarios(req.body);
+    editar.clave = sinclave?"":editar.clave;
+    editar.idusuario = req.params.idusuario;
+    console.log("NUEVO USUARIO:", editar);
+
+    Usuarios.editarUsuario(editar, (err, result) => {
+        if (err){
+            console.log("ERROR AL EDITAR USUARIO", err);
+            res.render('panel/editarusuario', {status: "error", msg: "Error al actualizar datos", token: req.datatoken, usuario: [editar]});
+        }else{
+            res.render('panel/editarusuario', {status: "ok", msg: "Administrador editado con éxito", token: req.datatoken, usuario: [editar]});
+        }
+    });
+};
+
+exports.obtenerUsuario = (req, res) => {
+    Usuarios.obtenerUsuarioPorId(req.params.idusuario, (err, result) => {
+        if (err){
+            res.render('panel/editarusuario', {status: "error", msg: "Error al actualizar datos", token: req.datatoken, usuario: []});
+        }else {
+            console.log("DATOS USUARIO:", result);
+            res.render('panel/editarusuario', {status: "", msg: "", token: req.datatoken, usuario: result});
+        }
+    });
+};

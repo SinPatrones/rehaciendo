@@ -40,8 +40,8 @@
                         <td scope="row"><%= listaDeUsuarios[i].tipousuario?"Administrador":"Visitante" %></td>
                         <td scope="row">
                             <%if (token.tipousuario){%>
-                                <a href="/panel/editarUsuario/<%= listaDeUsuarios[i].idusuario %>">EDITAR </a>
-                                <a href="/panel/eliminarUsuario/<%= listaDeUsuarios[i].idusuario %>">ELIMINAR</a>
+                                <a href="/panel/editarusuario/<%= listaDeUsuarios[i].idusuario %>">EDITAR </a>
+                                <a href="/panel/eliminarusuario/<%= listaDeUsuarios[i].idusuario %>">ELIMINAR</a>
                             <%}else{%>
                                 SOLO LECTURA
                             <%}%>

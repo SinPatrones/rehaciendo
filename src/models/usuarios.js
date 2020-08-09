@@ -50,6 +50,42 @@ class Usuarios{
         );
     }
 
+    static editarUsuario(actualizarUsuario, result){
+        let cadena = "";
+        let datos = [];
+        if (actualizarUsuario.clave){
+            cadena = "UPDATE usuarios SET usuario=?,clave=?,nombres=?,apellidos=? WHERE idusuario=?";
+            datos = [actualizarUsuario.usuario,Tools.hashear(actualizarUsuario.clave),actualizarUsuario.nombres,actualizarUsuario.apellido,actualizarUsuario.idusuario];
+        }else{
+            cadena = "UPDATE usuarios SET usuario=?,nombres=?,apellidos=? WHERE idusuario=?";
+            datos = [actualizarUsuario.usuario,actualizarUsuario.nombres,actualizarUsuario.apellidos,actualizarUsuario.idusuario];
+        }
+        conexion.query(
+            cadena,
+            datos,
+            (err, res) => {
+                if (err){
+                    result(err, null);
+                }else{
+                    result(null, res);
+                }
+            }
+        );
+    }
+
+    static obtenerUsuarioPorId(idUsuario, result){
+        conexion.query(
+            "SELECT * FROM usuarios WHERE idusuario=?",
+            [idUsuario],
+            (err, res) => {
+                if (err){
+                    result(err, null);
+                }else{
+                    result(null, res);
+                }
+            }
+        );
+    }
 }
 
 
