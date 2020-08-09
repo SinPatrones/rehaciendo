@@ -5,16 +5,21 @@
     <title>Iniciar Sesion</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/css/estilos_login.css">
-    <script src="/js_conexion/login.js"></script> 
+    
+    <script src="/js_conexion/login.js"></script>
 </head>
 <body>
 <div>
+    <div class="<%=status==='error'?"alert alert-danger":"" %>" ><strong><%= msg %></strong></div>
     <div class="login">
-        <h4 style="background-color: <%=status==='error'?"red":"" %>" ><%= msg %></h4>
+        
         <form method="post" action="/panel/ingresar" class="form">
             <h1>INICIAR SESION</h1>
-            <h2> o <a href="/panel/crearusuario2">Registrate</a></h2>
+            <h2> o <a href="registrarse.html">Registrate</a></h2>
             <label for="usuario">Usuario: </label>
             <input class="username" name="usuario" id="usuario" type="text" placeholder="Ingresar usuario">
             <br><br>
