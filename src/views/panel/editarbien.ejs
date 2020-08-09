@@ -17,7 +17,7 @@
     <%- include('../include/sidebar') %>
 
     <div class="main_container">
-        <h4 style="background-color: <%= status==='error'? "red":"" %>" ><%= msg %></h4>
+        
         <form method="post" action="/panel/editarbien/<%= datosBien[0].idbien %>" class="form">
             <h1>Editar Bien</h1>
             <h4 style="background-color: <%= status==='ok'? "yelllow":"red" %>"><%= msg %></h4>
@@ -38,13 +38,14 @@
                 <label for="">Descripcion</label>
             </div>
             <div class="grupo">
+                <br><br><label for="">Tipo de Bien</label>
                 <select name="idtipo" id="idtipo">
                     <option value="0">SELECCIONE UNO</option>
                     <% for(let i = 0; i < tipoDeBienes.length; i++){ %>
                         <option value="<%= tipoDeBienes[i].idtipobien %>" <%= tipoDeBienes[i].idtipobien===datosBien[0].idtipo? "selected":"" %> ><%= tipoDeBienes[i].nombre %></option>
                     <% } %>
                 </select></span>
-                <label for="">Tipo de Bien</label>
+                
             </div>
             <div class="register">
                 <p>
