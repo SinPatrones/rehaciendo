@@ -82,11 +82,12 @@ exports.editarusuario = (req, res) => {
         sinclave = true;
     }
     let editar = new Usuarios(req.body);
+    console.log("FORMULARIO:", req.body);
     editar.clave = sinclave?"":editar.clave;
     editar.idusuario = req.params.idusuario;
     console.log("NUEVO USUARIO:", editar);
 
-    Usuarios.editarUsuario(editar, (err, result) => {
+    Usuarios.editarUsuario(editar, sinclave, (err, result) => {
         if (err){
             console.log("ERROR AL EDITAR USUARIO", err);
             res.render('panel/editarusuario', {status: "error", msg: "Error al actualizar datos", token: req.datatoken, usuario: [editar]});

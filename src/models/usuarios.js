@@ -4,7 +4,7 @@ const Tools = require('../lib/tools');
 class Usuarios{
     constructor(nuevousuario) {
         this.usuario = nuevousuario.usuario;
-        this.clave = Tools.hashear(nuevousuario.clave);
+        this.clave = (nuevousuario.clave !== ""? Tools.hashear(nuevousuario.clave): "");
         this.nombres = nuevousuario.nombres;
         this.apellidos = nuevousuario.apellidos;
         this.tipodeusuario = nuevousuario.tipodeusuario;
@@ -50,15 +50,17 @@ class Usuarios{
         );
     }
 
-    static editarUsuario(actualizarUsuario, result){
+    static editarUsuario(actualizarUsuario, sinclave, result){
         let cadena = "";
         let datos = [];
-        if (actualizarUsuario.clave){
-            cadena = "UPDATE usuarios SET usuario=?,clave=?,nombres=?,apellidos=? WHERE idusuario=?";
-            datos = [actualizarUsuario.usuario,Tools.hashear(actualizarUsuario.clave),actualizarUsuario.nombres,actualizarUsuario.apellido,actualizarUsuario.idusuario];
-        }else{
+        if (actualizarUsuario.clave === ""){
+            console.log("SIN cambio la clave");
             cadena = "UPDATE usuarios SET usuario=?,nombres=?,apellidos=? WHERE idusuario=?";
             datos = [actualizarUsuario.usuario,actualizarUsuario.nombres,actualizarUsuario.apellidos,actualizarUsuario.idusuario];
+        }else{
+            console.log("Se cambio la clave");
+            cadena = "UPDATE usuarios SET usuario=?,clave=?,nombres=?,apellidos=? WHERE idusuario=?";
+            datos = [actualizarUsuario.usuario,actualizarUsuario.clave,actualizarUsuario.nombres,actualizarUsuario.apellidos,actualizarUsuario.idusuario];
         }
         conexion.query(
             cadena,
