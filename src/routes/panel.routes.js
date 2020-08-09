@@ -17,6 +17,8 @@ router.get('/mostrarusuarios', VerificarToken, Usuarios.obtenerUsuarios);
 router.get('/registrarbien', VerificarToken, TiposDeBienes.obtenerLista);
 router.post('/registrarbien', VerificarToken, Bienes.crearBien);
 router.get('/editarbien/:idbien', VerificarToken, Bienes.obtenerBienPorId);
+router.post('/editarbien/:idbien', VerificarToken, Bienes.editarBien);
+
 router.get('/eliminarbien/:idbien', VerificarToken, Bienes.eliminarBienPorId);
 router.get('/buscarbien', VerificarToken, Bienes.buscarBienes);
 router.get('/buscarbien/:idcategoria/:nombrebien', VerificarToken, Bienes.buscatBienesPorNombre);

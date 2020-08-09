@@ -17,6 +17,7 @@
     <%- include('../include/sidebar') %>
 
     <div class="main_container">
+        <h4 style="background-color: <%= status==='error'? "red":"" %>" ><%= msg %></h4>
         <form method="post" action="/panel/editarbien/<%= datosBien[0].idbien %>" class="form">
             <h1>Editar Bien</h1>
             <h4 style="background-color: <%= status==='ok'? "yelllow":"red" %>"><%= msg %></h4>

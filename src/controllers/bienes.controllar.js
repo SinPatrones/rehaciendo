@@ -78,3 +78,21 @@ exports.buscatBienesPorNombre = (req, res) => {
         }
     })
 };
+
+exports.editarBien = (req, res) => {
+    let actualizar = new Bienes(req.body);
+    actualizar.idbien = req.params.idbien;
+    Bienes.editarBien(actualizar, (err, result) => {
+        if (err){
+            res.render('panel/editarbien', {status: "error", msg: "No se puede actualizar datos", token: req.datatoken, datosBien: resultBien, tipoDeBienes: []});
+        }else{
+            TipoDeBienes.obtenerLista((errTipoDeBienes, resultTipoDeBienes) => {
+                if (errTipoDeBienes){
+                    res.render('panel/editarbien', {status: "ok", msg: "Se actualizaron datos", token: req.datatoken, datosBien: [actualizar], tipoDeBienes: []});
+                }else{
+                    res.render('panel/editarbien', {status: "ok", msg: "Se actualizaron datos", token: req.datatoken, datosBien: [actualizar], tipoDeBienes: resultTipoDeBienes});
+                }
+            });
+        }
+    });
+};

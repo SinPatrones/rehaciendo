@@ -65,6 +65,20 @@ class Bienes{
             }
         );
     }
+
+    static editarBien(actualizarBien, result){
+        connection.query(
+            "UPDATE bienes SET nombre=?,cantidad=?,ubicacion=?,descripcion=?,idtipo=? WHERE idbien=?",
+            [actualizarBien.nombre,actualizarBien.cantidad,actualizarBien.ubicacion,actualizarBien.descripcion,actualizarBien.idtipo,actualizarBien.idbien],
+            (err, res) => {
+                if (err){
+                    result(err, null);
+                }else{
+                    result(null, res);
+                }
+            }
+        );
+    }
 }
 
 module.exports = Bienes;
