@@ -19,7 +19,7 @@
     <div class="main_container">
         <form method="post" action="../panel/crearusuario" class="form">
             <h1>Registrar Administrador</h1>
-            <h5 style="background-color: <%= status==="error"? "red":"yellow" %>" ><%= msg %></h5>
+             <h4 <%= status==="error" %>" ><%= msg %></h4>
             <div class="grupo">
                 <input type="text" name="usuario" id="usuario" required><span class="barra"></span>
                 <label for="">Administrador</label>
