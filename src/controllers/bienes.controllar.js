@@ -54,7 +54,18 @@ exports.obtenerBienPorId = (req, res) => {
 };
 
 exports.eliminarBienPorId = (req, res) => {
-    res.render('panel/eliminarbien', {datosBien: {id: req.params.idbien}, token: req.datatoken});
+    Bienes.eliminarBien(req.params.idbien, (err, result) => {
+        if (err){
+            console.log("NO SE PUDO ELIMINAR BIEN", err);
+            res.json({
+                status: 'error'
+            });
+        }else{
+            res.json({
+                status: 'ok'
+            });
+        }
+    });
 };
 
 exports.buscarBienes = (req, res) => {
