@@ -6,9 +6,9 @@ exports.crearAdministrador = (req, res) => {
     Usuarios.crearUsuario(nuevoUsuario, (err, result) => {
         if (err){
             console.log("ERROR AL REGISTRAR", err);
-            res.render('panel/registrarusuario', {status: "error", msg: "Error al registrar administrador"});
+            res.render('panel/registrarusuario', {status: "error", msg: "Error al registrar administrador", token: req.datatoken});
         }else{
-            res.render('panel/registrarusuario', {status: "ok", msg: "Administrador registrado con éxito"});
+            res.render('panel/registrarusuario', {status: "ok", msg: "Administrador registrado con éxito", token: req.datatoken});
         }
     });
 };
@@ -104,6 +104,21 @@ exports.obtenerUsuario = (req, res) => {
         }else {
             console.log("DATOS USUARIO:", result);
             res.render('panel/editarusuario', {status: "", msg: "", token: req.datatoken, usuario: result});
+        }
+    });
+};
+
+exports.eliminarUsuario = (req, res) => {
+    Usuarios.eliminarUsuari(req.params.idusuario, (err, result) => {
+        if (err){
+            console.log("ERROR AL ELIMINAR:", err);
+            res.json({
+                status: 'error'
+            });
+        }else{
+            res.json({
+                status: 'ok'
+            });
         }
     });
 };

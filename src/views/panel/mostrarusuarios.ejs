@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <link rel="stylesheet" type="text/css" href="/css/estilos.css">
     <link rel="stylesheet" type="text/css" href="/css/estilo_h.css">
 </head>
@@ -41,7 +43,7 @@
                         <td scope="row">
                             <%if (token.tipousuario){%>
                                 <a href="/panel/editarusuario/<%= listaDeUsuarios[i].idusuario %>">EDITAR </a>
-                                <a href="/panel/eliminarusuario/<%= listaDeUsuarios[i].idusuario %>">ELIMINAR</a>
+                                <button onclick="eliminarUsuario(<%= listaDeUsuarios[i].idusuario %>)">ELIMINAR</button>
                             <%}else{%>
                                 SOLO LECTURA
                             <%}%>
@@ -56,5 +58,37 @@
     </div>
 
     <script src="/js/script_h.js"></script>
+<script>
+    function eliminarUsuario(idusuario) {
+        let rpta = confirm("Desea eliminar usuario con ID: " + idusuario);
+        if (rpta){
+            $.ajax({
+                // En data puedes utilizar un objeto JSON, un array o un query string
+                data: {},
+                //Cambiar a type: POST si necesario
+                type: "POST",
+                // Formato de datos que se espera en la respuesta
+                dataType: "json",
+                // URL a la que se enviará la solicitud Ajax
+                url: "/panel/eliminarusuario/" + idusuario,
+            })
+                .done(function( data, textStatus, jqXHR ) {
+                    console.log("EJECUTADO");
+                    console.log(data);
+                    if (data.status === "ok"){
+                        alert("Se elimino éxitosamente");
+                        location.href = '/panel/mostrarusuarios';
+                    }else{
+                        alert("No se pudo eliminar");
+                    }
+                })
+                .fail(function( jqXHR, textStatus, errorThrown ) {
+                    if ( console && console.log ) {
+                        console.log( "La solicitud a fallado: " +  textStatus);
+                    }
+                });
+        }
+    }
+</script>
 </body>
 </html>

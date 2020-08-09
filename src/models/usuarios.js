@@ -88,6 +88,19 @@ class Usuarios{
             }
         );
     }
+
+    static eliminarUsuari(idusuario, result){
+        conexion.query(
+            "DELETE FROM usuarios WHERE idusuario="+idusuario,
+            (err, res) => {
+                if (err){
+                    result(err, null);
+                }else{
+                    result(null, res);
+                }
+            }
+        );
+    }
 }
 
 

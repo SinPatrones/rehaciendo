@@ -30,6 +30,7 @@ router.get('/crearusuario', VerificarToken, (req, res) =>{
 router.post('/crearusuario', VerificarToken, Usuarios.crearAdministrador);
 router.get('/editarusuario/:idusuario', VerificarToken, Usuarios.obtenerUsuario);
 router.post('/editarusuario/:idusuario', VerificarToken, Usuarios.editarusuario);
+router.post('/eliminarusuario/:idusuario', VerificarToken, Usuarios.eliminarUsuario);
 
 router.get('/ingresar', (req, res) => {
    res.render('panel/ingresar', {status: '', msg: '', token: req.datatoken});
