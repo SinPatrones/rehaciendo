@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a0adbdb-474f-41e4-b1d5-246535b765f8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/views/include/sidebar.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/include/sidebar.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/index.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/panel/buscarbien.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/panel/buscarbien.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,7 +19,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/src" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1fklRzjoT6ihIY0Wltjx08LJoql" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -65,6 +65,7 @@
       <updated>1596769966696</updated>
       <workItem from="1596769971928" duration="9022000" />
       <workItem from="1596820279017" duration="16617000" />
+      <workItem from="1596947591168" duration="550000" />
     </task>
     <servers />
   </component>
