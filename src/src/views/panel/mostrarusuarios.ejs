@@ -25,16 +25,16 @@
                 <th scope="row">Nombre de Usuario</th>
                 <th scope="row">Nombre</th>
                 <th scope="row">Apellido</th>
+                <th scope="row">Acciones</th>
                 </thead>
                 <tbody>
                 <% if (status!=="error") {
                 for (let i = 0; i < listaDeUsuarios.length; i++){
                 %>
                     <tr>
-                        <td scope="row"><%= new Date(listaDeUsuarios[i].fecharegistro).getDate() + "/" + new Date(listaDeUsuarios[i].fecharegistro).getMonth() + "/" + new Date(listaDeUsuarios[i].fecharegistro).getFullYear() %></td>
                         <td scope="row"><%= listaDeUsuarios[i].idusuario %></td>
                         <td scope="row"><%= listaDeUsuarios[i].usuario %></td>
-                        <td scope="row"><%= listaDeUsuarios[i].nombre %></td>
+                        <td scope="row"><%= listaDeUsuarios[i].nombres %></td>
                         <td scope="row"><%= listaDeUsuarios[i].apellidos %></td>
                         <td scope="row">
                             <%if (token.tipousuario){%>
