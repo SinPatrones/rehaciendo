@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/estilo_h.css">
+    <link rel="stylesheet" type="text/css" href="/css/estilo_b.css">
+    <link rel="stylesheet" type="text/css" href="/css/estilos_1.css">
+</head>
+<body>
+
+<div class="wrapper hover_collapse">
+
+    <%- include('../include/topnavbar', {token: token}) %>
+
+    <%- include('../include/sidebar', {token: token}) %>
+
+    <div class="main_container">
+        <div class="container">
+            <div class="buscar">
+                <select name="busquedacategoria" id="busquedacategoria" class="buscar_texto" onchange="cambioCategoria(this)">
+                    <option value="0">TODOS</option>
+                    <option value="5">MUEBELES</option>
+                </select>
+                <input type="text" name="busquedanombre" id="busquedanombre" class="buscar_texto" placeholder="Elemento" onblur="BuscarPorNombre();">
+                <a href="/panel/buscarbien/0/" class="boton" id="buscar">
+                    <i class="fas fa-search"></i>
+                </a>
+            </div>
+            <div class="datagrid">
+                <table class = "table" border=1>
+                    <thead>
+                    <th scope="row">Fecha</th>
+                    <th scope="row">Id</th>
+                    <th scope="row">Nombre</th>
+                    <th scope="row">Cantidad</th>
+                    <th scope="row">Ubicación</th>
+                    <th scope="row">Descripción</th>
+                    <th scope="row">Creador</th>
+                    <th scope="row">Acciones</th>
+                    </thead>
+                    <tbody>
+                    <% if (status!=="error") {
+                    for (let i = 0; i < listaDeBienes.length; i++){
+                    %>
+                        <tr>
+                            <td scope="row"><%= new Date(listaDeBienes[i].fecharegistro).getDate() + "/" + new Date(listaDeBienes[i].fecharegistro).getMonth() + "/" + new Date(listaDeBienes[i].fecharegistro).getFullYear() %></td>
+                            <td scope="row"><%= listaDeBienes[i].idbien %></td>
+                            <td scope="row"><%= listaDeBienes[i].nombre %></td>
+                            <td scope="row"><%= listaDeBienes[i].cantidad %></td>
+                            <td scope="row"><%= listaDeBienes[i].ubicacion %></td>
+                            <td scope="row"><%= listaDeBienes[i].descripcion %></td>
+                            <td scope="row"><%= listaDeBienes[i].usuario %></td>
+                            <td scope="row">
+                                <%if (token.tipousuario){%>
+                                    <a href="/panel/editarbien/<%= listaDeBienes[i].idbien %>">EDITAR</a>
+                                    <a href="/panel/eliminarbien/<%= listaDeBienes[i].idbien %>">ELIMINAR</a>
+                                <%}else{%>
+                                    SOLO LECTURA
+                                <%}%>
+                            </td>
+                        </tr>
+                    <%}}%>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="/js/script_h.js"></script>
+
+<script>
+    let nombreproducto = "";
+    let categoria = "0";
+
+    function BuscarPorNombre() {
+        let cajaNombre = document.getElementById("busquedanombre").value;
+        nombreproducto = cajaNombre;
+        console.log("Tipeando en caja", cajaNombre);
+        let buscar =  document.getElementById("buscar");
+        buscar.setAttribute('href', '/panel/buscarbien/' + categoria + '/' + cajaNombre);
+    }
+
+    function cambioCategoria(evt) {
+        console.log(evt.selectedIndex);
+        var selectedOption = evt.options[evt.selectedIndex];
+        console.log(selectedOption.value + ': ' + selectedOption.text);
+
+        categoria = selectedOption.value;
+        let buscar =  document.getElementById("buscar");
+        buscar.setAttribute('href', '/panel/buscarbien/' + categoria + '/' + nombreproducto);
+    }
+
+</script>
+</body>
+</html>

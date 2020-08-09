@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/estilos.css">
+    <link rel="stylesheet" type="text/css" href="/css/estilo_h.css">
+</head>
+<body>
+
+<div class="wrapper hover_collapse">
+
+    <%- include('../include/topnavbar', {token: token}) %>
+
+    <%- include('../include/sidebar', {token: token}) %>
+
+    <div class="main_container">
+        <h1>Usuarios</h1>
+        <div class="datagrid">
+            <table class = "table" border=1>
+                <thead>
+                <th scope="row">Id</th>
+                <th scope="row">Nombre de Usuario</th>
+                <th scope="row">Nombre</th>
+                <th scope="row">Apellido</th>
+                <th scope="row">Acciones</th>
+                </thead>
+                <tbody>
+                <% if (status!=="error") {
+                for (let i = 0; i < listaDeUsuarios.length; i++){
+                %>
+                    <tr>
+                        <td scope="row"><%= listaDeUsuarios[i].idusuario %></td>
+                        <td scope="row"><%= listaDeUsuarios[i].usuario %></td>
+                        <td scope="row"><%= listaDeUsuarios[i].nombres %></td>
+                        <td scope="row"><%= listaDeUsuarios[i].apellidos %></td>
+                        <td scope="row">
+                            <%if (token.tipousuario){%>
+                                <a href="/panel/editarUsuario/<%= listaDeUsuarios[i].idusuario %>">EDITAR </a>
+                                <a href="/panel/eliminarUsuario/<%= listaDeUsuarios[i].idusuario %>">ELIMINAR</a>
+                            <%}else{%>
+                                SOLO LECTURA
+                            <%}%>
+                        </td>
+                    </tr>
+                <%}}%>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+
+    <script src="/js/script_h.js"></script>
+</body>
+</html>
