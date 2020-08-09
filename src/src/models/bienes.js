@@ -40,7 +40,7 @@ class Bienes{
 
     static obtenerBienPorId(idbien, result){
         connection.query(
-            "SELECT * FROM bienes WHERE idbien=?",
+            "UPDATE bienes SET * WHERE idbien=?",
             [idbien],
             (err, res) => {
                 if (err){
