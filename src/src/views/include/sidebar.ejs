@@ -1,0 +1,56 @@
+<div class="sidebar">
+    <div class="sidebar_inner">
+        <ul>
+            <li class="sidebar-item" id="inventario">
+                <a href="#inventario">
+                    <span class="icon"></span>
+                    <i class="fas fa-cubes"></i>
+                    <span class="text">Inventario</span>
+                </a>
+                <div class="sidebar-item_sub">
+                    <a href="/panel/mostrarinventario">
+                        <span class="icon"></span>
+                        <i class="fas fa-th-list"></i>
+                        <span class="text">Mostrar</span>
+                    </a>
+                    <% if (token.tipousuario){%>
+                        <a href="/panel/registrarbien">
+                            <span class="icon"></span>
+                            <i class="fas fa-tasks"></i>
+                            <span class="text">Registrar</span>
+                        </a>
+                    <%}%>
+                    <a href="/panel/buscarbien">
+                        <span class="icon"></span>
+                        <i class="fas fa-search"></i>
+                        <span class="text">Buscar</span>
+                    </a>
+                </div>
+            </li>
+            <li class="sidebar-item" id="usuarios">
+                <a href="#usuarios">
+                    <span class="icon"></span>
+                    <i class="far fa-address-card"></i>
+                    <span class="text">Usuarios</span>
+                </a>
+                <div class="sidebar-item_sub">
+                    <a href="/panel/mostrarusuarios">
+                        <span class="icon"></span>
+                        <i class="fas fa-th-list"></i>
+                        <span class="text">Mostrar</span>
+                    </a>
+                </div>
+                <% if (token.tipousuario){%>
+                    <div class="sidebar-item_sub">
+                        <a href="/panel/crearusuario">
+                            <span class="icon"></span>
+                            <i class="fas fa-th-list"></i>
+                            <span class="text">Registrar Administrador</span>
+                        </a>
+                    </div>
+                <%}%>
+
+            </li>
+        </ul>
+    </div>
+</div>
