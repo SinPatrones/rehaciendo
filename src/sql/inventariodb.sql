@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-08-2020 a las 07:33:05
--- Versión del servidor: 10.4.11-MariaDB
--- Versión de PHP: 7.4.1
+-- Tiempo de generación: 09-08-2020 a las 00:37:53
+-- Versión del servidor: 10.4.13-MariaDB
+-- Versión de PHP: 7.4.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -21,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `inventariodb`
 --
-CREATE DATABASE IF NOT EXISTS `inventariodb` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `inventariodb`;
 
 -- --------------------------------------------------------
 
@@ -40,6 +37,13 @@ CREATE TABLE `bienes` (
   `idcreador` int(11) NOT NULL,
   `idtipo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `bienes`
+--
+
+INSERT INTO `bienes` (`idbien`, `nombre`, `descripcion`, `cantidad`, `ubicacion`, `fecharegistro`, `idcreador`, `idtipo`) VALUES
+(1, 'Laptop Acer', 'Laptop ACER core i7 ', 2, 'Laboratorio 306', '2020-07-08', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -104,7 +108,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `bienes`
 --
 ALTER TABLE `bienes`
-  MODIFY `idbien` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idbien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `tiposdebienes`

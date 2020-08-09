@@ -65,6 +65,20 @@ class Bienes{
             }
         );
     }
+
+    static eliminarBien(idbien, result){
+        connection.query(
+            "DELETE * FROM bienes WHERE idbien=?",
+            [idbien],
+            (err, res) => {
+                if (err){
+                    result(err, null);
+                }else{
+                    result(null, res);
+                }
+            }
+        )
+    }
 }
 
 module.exports = Bienes;

@@ -6,9 +6,9 @@ exports.crearAdministrador = (req, res) => {
     Usuarios.crearUsuario(nuevoUsuario, (err, result) => {
         if (err){
             console.log("ERROR AL REGISTRAR", err);
-            res.render('panel/registraradmin', {status: "error", msg: "Error al registrar administrador"});
+            res.render('panel/registraradmin', {status: "error", msg: "Error al registrar administrador", token: req.datatoken});
         }else{
-            res.render('panel/registraradmin', {status: "ok", msg: "Administrador registrado con éxito"});
+            res.render('panel/registraradmin', {status: "ok", msg: "Administrador registrado con éxito", token: req.datatoken});
         }
     }); 
 };
@@ -19,9 +19,9 @@ exports.crearUsuarioNormi = (req, res) => {
     Usuarios.crearUsuario(nuevoUsuario, (err, result) => {
         if (err){
             console.log("ERROR AL REGISTRAR", err);
-            res.render('panel/registrarusuario', {status: "error", msg: "Error al registrar usuario"});
+            res.render('panel/registrarusuario', {status: "error", msg: "Error al registrar usuario", token: req.datatoken});
         }else{
-            res.render('panel/registrarusuario', {status: "ok", msg: "Usuario registrado con éxito"});
+            res.render('panel/registrarusuario', {status: "ok", msg: "Usuario registrado con éxito", token: req.datatoken});
         }
     });
 };
@@ -30,10 +30,10 @@ exports.ingresarAdministrador = (req, res) => {
     console.log("FOMRULARIO", req.body);
     Usuarios.obtenerUsuario(req.body.usuario, (err, result) => {
         if (err){
-            res.render('panel/ingresar', {status: 'error', msg: "ERROR EN SISTEMA"});
+            res.render('panel/ingresar', {status: 'error', msg: "ERROR EN SISTEMA", token: req.datatoken});
         }else{
             if (result.length < 1){
-                res.render('panel/ingresar', {status: 'error', msg: "Usuario no encontrado"});
+                res.render('panel/ingresar', {status: 'error', msg: "Usuario no encontrado", token: req.datatoken});
             }else{
                 const Tools = require('../lib/tools');
                 if (Tools.compararhash(req.body.clave, result[0].clave)){
@@ -87,4 +87,8 @@ exports.obtenerUsuarios = (req, res) => {
             res.render('panel/mostrarusuarios', {status: "ok", msg: 'Lista de usuarios recuperada', listaDeUsuarios: result, token: req.datatoken});
         }
     });
+};
+
+exports.eliminarUsuarioPorId = (req, res) => {
+    res.render('panel/eliminarusuario', {datosUsuario: {id: req.params.idusuario}, token: req.datatoken});
 };

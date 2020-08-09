@@ -7,50 +7,24 @@
     <link rel="stylesheet" href="/css/estilos_login.css">
 </head>
 <body>
-<form action="../panel/crearusuario2" method="POST">
+<form method="post" action="../panel/crearusuario2" class="form">
     <div class="login">
         <div class="form">
+            <h4 style="background-color: <%=status==='error'?"red":"" %>" ><%= msg %></h4>
             <h1>REGISTRARSE</h1>
             <h2>o <a href="/panel/ingresar">Inicia Sesión</a></h2>
             <label for="email">Usuario: </label>
-            <input name="email" type="text" id="usuario" placeholder="Ingresa tu usuario" required><!-- + id-->
-            <input name="email" type="text" id="nombre" placeholder="Ingresa tu nombre" required><!-- + id-->
-            <input name="apellido" type="text" id="apellido" placeholder="Ingresa tu apellido" required><br><br><!-- + id-->
+            <input name="usuario" type="text" id="usuario" placeholder="Ingresa tu usuario" required><!-- + id-->
+            <input name="nombres" type="text" id="nombres" placeholder="Ingresa tu nombre" required><!-- + id-->
+            <input name="apellidos" type="text" id="apellidos" placeholder="Ingresa tu apellido" required><br><br><!-- + id-->
             <label for="clave">Contraseña: </label>
-            <input class="password" name="clave" type="password" placeholder="Ingresa tu contraseña" required>
+            <input class="password" name="clave" id="clave" type="password" placeholder="Ingresa tu contraseña" required>
             <input type="text" name="tipodeusuario" id="tipodeusuario" value="0" required style="display: none"><span class="barra"></span>
             <br><br>
             <input type="submit" value="ENVIAR">
         </div>
     </div>
 </form>
-<script>
-    function register(){
-        let username = document.createElement("username").value;
-        let name = document.createElement("name").value;
-        let password = document.send("password").value;
-        console.log("usuarios:", username, "nombre:", name, "clave:",password),
-            $.ajax({
-                data: {"username": username, "name": name, "password": password},
-                type: "POST",
-                dataType: "json",
-                url: "http://alvaro.timoideas.com/register",
-            })
-                .done(function(data,textStatus,jqXHR){
-                    console.log("hecho");
-                    console.log(data);
-                    if(data.ok){
-                        alert("creado");
-                    }else{
-                        alert("algo salio mal :'v ")
-                    }
-                })
-                .fail(function(jqXHR, textStatus, errorThrown){
-                    if(console && console.log){
-                        console.log(" salio mal x2" + textStatus);
-                    }
-                });
-    }
-</Script>
+<script src="/js/script_h.js"></script>
 </body>
 </html>
