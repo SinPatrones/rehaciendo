@@ -37,13 +37,14 @@
             <label for="">Descripcion</label>
         </div>
         <div class="grupo">
+        <br><br><label for="">Tipo de Bien</label><select name="idtipo" id="idtipo">
             <select name="idtipo" id="idtipo">
                 <option value="0">SELECCIONE UNO</option>
                 <% for(let i = 0; i < tipoDeBienes.length; i++){ %>
                 <option value="<%= tipoDeBienes[i].idtipobien %>"><%= tipoDeBienes[i].nombre %></option>
                 <% } %>
             </select></span>
-            <label for="">Tipo de Bien</label>
+            
         </div>
         <div class="register">
             <p>
